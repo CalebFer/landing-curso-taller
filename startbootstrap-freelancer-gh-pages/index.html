@@ -1,0 +1,937 @@
+<!-- por arreglar:
+navbarResponsive
+agendarResponsive
+colocar colores a la agenda
+inscripcion
+especialistasResponsive -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Freelancer - Start Bootstrap Theme</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body class="font-montserrat">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 text-white fixed w-full z-10">
+      <div
+        class="container mx-auto px-4 py-2 flex justify-between items-center"
+      >
+        <a href="#page-top" class="text-xl font-bold">LOGO</a>
+        <button
+          class="md:hidden p-2 bg-blue-500 rounded text-white uppercase font-bold"
+          onclick="toggleMenu()"
+        >
+          Menu <i class="fas fa-bars"></i>
+        </button>
+        <div class="hidden md:flex space-x-4" id="navbarResponsive">
+          <a href="#portfolio" class="py-2 px-4 hover:bg-blue-500 rounded"
+            >Especialistas</a
+          >
+          <a href="#about" class="py-2 px-4 hover:bg-blue-500 rounded"
+            >Acerca del curso</a
+          >
+          <a href="#contact" class="py-2 px-4 hover:bg-blue-500 rounded"
+            >Agenda</a
+          >
+          <!-- <a href="#agenda" class="py-2 px-4 hover:bg-blue-500 rounded"
+            >Agenda</a
+          > -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header
+      class="bg-gradient-to-b from-[#00A9C8] to-[#00152C] text-white h-screen flex flex-col justify-center items-center"
+    >
+      <img src="assets/img/avataaars.svg" alt="Avatar" class="w-32 h-32 mb-8" />
+      <h1 class="text-4xl font-bold uppercase text-center">
+        <p>CURSO TALLER:</p>
+        <p>DESARROLLO COGNITIVO</p>
+      </h1>
+      <h2 class="text-2xl mt-4 text-center">
+        "Construcción de Items Modelo por Competencias"
+      </h2>
+      <p class="mt-8 text-xl">
+        Faltan:
+      </p>
+      <div class="flex flex-row gap-x-1 uppercase">
+
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-6xl tabular-nums" data-days>00</span>
+          <span class="text-xs">días</span>
+        </div>
+
+        <span aria-hidden="true" class="mt-2 text-4xl font-bold">:</span>
+
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-6xl tabular-nums" data-hours>00</span>
+          <span class="text-xs">horas</span>
+        </div>
+        
+        <span aria-hidden="true" class="mt-2 text-4xl font-bold">:</span>
+
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-6xl tabular-nums" data-minutes>00</span>
+          <span class="text-xs">minutos</span>
+        </div>
+
+        <span aria-hidden="true" class="mt-2 text-4xl font-bold">:</span>
+
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-6xl tabular-nums" data-seconds>00</span>
+          <span class="text-xs">segundos</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center uppercase text-gray-800 mb-8">
+          Especialistas
+        </h2>
+        <div class="flex flex-wrap justify-center">
+          <!-- Ejemplo de una tarjeta -->
+          <div class="card bg-white border-4 border-white rounded-lg shadow-lg m-4 overflow-hidden w-72 text-center transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-2xl relative group">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-[#00A9C8] to-[#00152C] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+              <img 
+                  src="assets/img/especialistas/processed_image_1.png" 
+                  alt="Imagen principal" 
+                  class="w-full h-72 object-cover group-hover:opacity-[0.99]"
+              >
+            </div>
+            <div class="card-content p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Renato Mario Benazic Tomé</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Doctor en Matemática por el IMPA de Brasil y Magíster en Matemática Pura por la UNMSM. Profesor principal en la UNMSM y docente en la USIL desde 2010. Su investigación abarca ecuaciones diferenciales y modelos matemáticos aplicados a la economía.
+                </p>
+            </div>
+        </div>
+        
+          <div class="card bg-white border-4 border-white rounded-lg shadow-lg m-4 overflow-hidden w-72 text-center transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-2xl  relative group">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-[#00A9C8] to-[#00152C] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+              <img 
+                  src="assets/img/especialistas/processed_image_2.png" 
+                  alt="Imagen principal" 
+                  class="w-full h-72 object-cover group-hover:opacity-[0.99]"
+              >
+            </div>    
+            <div class="card-content p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Guissela Joanne Gonzales Fernández</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Magíster en Literatura Peruana y Latinoamericana por la UNMSM. Profesora asociada en la UNMSM y exdirectora de la Escuela de Bibliotecología. Su investigación se centra en estudios andinos e interculturalidad.</p>
+            </div>
+        </div>
+        <div class="card bg-white border-4 border-white rounded-lg shadow-lg m-4 overflow-hidden w-72 text-center transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-2xl  relative group">
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#00A9C8] to-[#00152C] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+            <img 
+                src="assets/img/especialistas/processed_image_3.png" 
+                alt="Imagen principal" 
+                class="w-full h-72 object-cover group-hover:opacity-[0.99]"
+            >
+          </div> 
+          <div class="card-content p-4">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">David Víctor Velásquez Silva</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">Magíster y Licenciado en Historia por la UNMSM. Profesor auxiliar en Historia y exdirector del Fondo Editorial de la UNMSM. Su trabajo se enfoca en la historia política peruana del siglo XIX y el Estado peruano.</p>
+          </div>
+      </div>
+      <div class="card bg-white border-4 border-white rounded-lg shadow-lg m-4 overflow-hidden w-72 text-center transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-2xl  relative group">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-b from-[#00A9C8] to-[#00152C] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+          <img 
+              src="assets/img/especialistas/processed_image_4.png" 
+              alt="Imagen principal" 
+              class="w-full h-72 object-cover opacity-100 group-hover:opacity-[0.99]"
+          >
+        </div> 
+        <div class="card-content p-4">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Melchor Nicolás Llosa Demartini</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Licenciado en Física por la UNMSM y Magíster en Gestión Ambiental. Profesor asociado en la UNMSM y miembro del Grupo de Investigación en Ciencias de la Tierra, especializado en física ambiental y arqueometría.</p>
+        </div>
+    </div>
+          
+    </div>
+    
+          <!-- Puedes agregar más tarjetas aquí -->
+      </div>
+          <!-- Repeat for other portfolio items -->
+        </div>
+      </div>
+    </section>
+    <!-- Modals -->
+    <!-- Modal 1 -->
+    <div
+      id="modal1"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50"
+      onclick="closeModal('modal1')"
+    >
+      <div
+        class="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 relative"
+        onclick="event.stopPropagation()"
+      >
+        <button
+          class="absolute top-2 right-2 text-gray-700 hover:text-gray-900"
+          onclick="closeModal('modal1')"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Log Cabin</h2>
+        <img
+          src="assets/img/portfolio/cabin.png"
+          alt="Cabin"
+          class="w-full h-auto mb-4"
+        />
+        <p class="text-gray-700">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
+          neque assumenda ipsam nihil, molestias magnam, recusandae quos quis
+          inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+          quod consequuntur itaque. Nam.
+        </p>
+        <button
+          class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          onclick="closeModal('modal1')"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="bg-gradient-to-b from-[#00A9C8] to-[#00152C] text-white py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center uppercase mb-8">
+          Acerca del Curso
+        </h2>
+        <div class="flex justify-center items-center mb-8">
+          <div class="w-16 h-1 bg-white"></div>
+          <i class="fas fa-star text-white mx-4"></i>
+          <div class="w-16 h-1 bg-white"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <p class="text-lg">
+            Freelancer is a free bootstrap theme created by Start Bootstrap. The
+            download includes the complete source files including HTML, CSS, and
+            JavaScript as well as optional SASS stylesheets for easy
+            customization.
+          </p>
+          <p class="text-lg">
+            You can create your own custom avatar for the masthead, change the
+            icon in the dividers, and add your email address to the contact form
+            to make it fully functional!
+          </p>
+        </div>
+        <div class="text-center mt-8">
+          <a
+            href="https://startbootstrap.com/theme/freelancer/"
+            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-500 transition-colors"
+          >
+            <i class="fas fa-download mr-2"></i> Free Download!
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center uppercase text-gray-800 mb-8">
+          Agenda
+        </h2>
+        <div class="flex flex-col md:grid md:grid-cols-2 gap-4 mt-8">
+          <h3 class="text-2xl font-bold text-center uppercase text-gray-800 mb-8">
+            dia 1
+          </h3>
+          <h3 class="text-2xl font-bold text-center uppercase text-gray-800 mb-8">
+            dia 2
+          </h3>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4  bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center  w-24">
+              <span>11:00 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                sadas
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:20 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                Mente flexible, aprendizaje poderoso: Estrategias para adaptarte a tu cerebro
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">Rita Codes</span>
+            </div>
+            <img class="-mb-4 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]" alt="Fotografía de Rita Codes" src="/ritacodes.png" />
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:00 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                sadas
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:20 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                Mente flexible, aprendizaje poderoso: Estrategias para adaptarte a tu cerebro
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">Rita Codes</span>
+            </div>
+            <img class="-mb-4 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]" alt="Fotografía de Rita Codes" src="assets/img/especialistas/processed_image_1.png" />
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:00 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                sadas
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:20 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                Mente flexible, aprendizaje poderoso: Estrategias para adaptarte a tu cerebro
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">Rita Codes</span>
+            </div>
+            <img class="-mb-4 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]" alt="Fotografía de Rita Codes" src="/ritacodes.png" />
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:00 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                sadas
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4 dark:text-white bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+            <span class="text-xl flex items-center justify-center font-bold text-center w-24">
+              <span>11:20 </span>
+            </span>
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]">
+                Mente flexible, aprendizaje poderoso: Estrategias para adaptarte a tu cerebro
+              </strong>
+              <span class="max-w-[280px] mobile:max-w-full">Rita Codes</span>
+            </div>
+            <img class="-mb-4 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]" alt="Fotografía de Rita Codes" src="/ritacodes.png" />
+          </article>
+          <!-- Repeat for other agenda items -->
+        </div>
+      </div>
+    </section>
+      <!-- <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center uppercase text-gray-800 mb-8">
+          Agenda
+        </h2> -->
+        <!-- <div class="grid grid-cols-2">
+          <div class="flex flex-col items-center justify-center">
+            <div>1</div>
+            <div>2</div>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+            <div>3</div>
+            <div>4</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="flex gap-y-4 mt-8 md:grid md:grid-cols-2 md:gap-x-4">
+          <h3
+            class="text-2xl font-bold text-center uppercase text-gray-800 mb-8"
+          >
+            dia 1
+          </h3>
+          <h3
+            class="text-2xl font-bold text-center uppercase text-gray-800 mb-8"
+          >
+            dia 2
+          </h3>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>11:00 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >¡Empieza la miduFest!</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>11:20 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Mente flexible, aprendizaje poderoso: Estrategias para
+                adaptarte a tu cerebro</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full">Rita Codes</span>
+            </div>
+            <img
+              class="-mb-4 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]"
+              alt="Fotografía de Rita Codes"
+              src="/ritacodes.png"
+            />
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>11:50 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Sorteos</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>12:00 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Encontrar trabajo dev en tiempos loquísimos</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full"
+                >Irene M. Morgado</span
+              >
+            </div>
+            <img
+              class="-mb-3 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]"
+              alt="Fotografía de Irene M. Morgado"
+              src="/irene.png"
+            />
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>12:30 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Sorteo</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full">midudev</span>
+            </div>
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>12:35 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Crecer en el mundo de la programación</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full"
+                >Daniel de la Cruz</span
+              >
+            </div>
+            <img
+              class="undefined absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]"
+              alt="Fotografía de Daniel de la Cruz"
+              src="/danidelacruz.png"
+            />
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>13:05 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Sorteo teclado Keychrone</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full"
+                >Miguel Ángel Durán</span
+              >
+            </div>
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>13:10 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Proyecto IDX: El editor de Google en la nube</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full">David East</span>
+            </div>
+            <img
+              class="-mb-4 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]"
+              alt="Fotografía de David East"
+              src="/davideast.png"
+            />
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>13:40 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Sorteo teclado Keychron</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full"
+                >Miguel Ángel Durán</span
+              >
+            </div>
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>13:45 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >El futuro de JavaScript</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full">Romulo Cintra</span>
+            </div>
+            <img
+              class="-mb-2 absolute w-28 h-[140px] object-cover object-center right-0 bottom-0 grayscale [mask-image:linear-gradient(to_bottom,_black_70%,transparent_90%)]"
+              alt="Fotografía de Romulo Cintra"
+              src="/romulo.png"
+            />
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>14:15 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Charla con Carmen, Goncy y Héctor</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full"
+                >Carmen + Goncy + Héctor de León</span
+              >
+            </div>
+          </article>
+          <article
+            class="relative hover:scale-105 hover:contrast-150 transition cursor-crosshair w-full border-[#222222] border-[1px] flex gap-x-4 px-4 rounded-lg mb-4 bg-gray py-4"
+          >
+            <span
+              class="text-xl flex items-center justify-center font-bold text-center w-24"
+              ><span>14:50 </span></span
+            >
+            <div class="flex flex-col justify-center w-full pr-8">
+              <strong
+                class="text-balance text-[16px] pr-8 max-w-[280px] mobile:max-w-full leading-tight text-left break-words overflow-hidden text-primary tablet:text-[24px]"
+                >Sorteo Final Sorpresa + Despedida</strong
+              >
+              <span class="max-w-[280px] mobile:max-w-full"
+                >Miguel Ángel Durán</span
+              >
+            </div>
+          </article>
+        </div> -->
+      </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-[#00A9C8] to-[#00152C]">
+      <h2 class="text-3xl dark:text-white font-bold text-center uppercase text-gray-800 mb-8">
+        Inscribirse
+      </h2>
+      <div class="container mx-auto px-4 text-gray-800">
+        <div class="flex justify-center items-center mb-8">
+          <div class="w-16 h-1 bg-gray-800"></div>
+          <i class="fas fa-star text-gray-800 mx-4"></i>
+          <div class="w-16 h-1 bg-gray-800"></div>
+        </div>
+        <form class="max-w-lg mx-auto">
+          <div class="mb-4">
+            <input
+              type="number"
+              placeholder="Numero de documento"
+              class="w-full px-4 py-2 border rounded-lg"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="text"
+              placeholder="Nombres"
+              class="w-full px-4 py-2 border rounded-lg"
+              oninput="this.value = this.value.toUpperCase();"
+            />
+          </div>
+            <div class="mb-4 flex flex-row gap-x-4">
+            <input
+              type="text"
+              placeholder="Apellido paterno"
+              class="w-1/2 px-4 py-2 border rounded-lg"
+              oninput="this.value = this.value.toUpperCase();"
+            />
+            <input
+              type="text"
+              placeholder="Apellido materno"
+              class="w-1/2 px-4 py-2 border rounded-lg"
+              oninput="this.value = this.value.toUpperCase();"
+            />
+            </div>
+          <div class="mb-4">
+            <input
+              type="number"
+              placeholder="Número de celular"
+              class="w-full px-4 py-2 border rounded-lg"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              class="w-full px-4 py-2 border rounded-lg"
+            />
+          </div>
+
+          <div class="mb-4 text-white">
+            <label class="block mb-2">Condición:</label>
+            <div class="flex items-center">
+              <input
+                type="radio"
+                id="unap"
+                name="condicion"
+                value="UNAP"
+                class="mr-2"
+              />
+              <label for="unap" class="mr-4">UNAP</label>
+              <input
+                type="radio"
+                id="particular"
+                name="condicion"
+                value="Particular"
+                class="mr-2"
+              />
+              <label for="particular">Particular</label>
+            </div>
+          </div>
+          <!-- Modal Trigger Button -->
+          <button
+            type="button"
+            class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-colors"
+            onclick="openModal('voucherModal')"
+          >
+            Subir Voucher
+          </button>
+          <button
+            type="submit"
+            class="container mt-4 bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-colors"
+          >
+            Send
+          </button>
+          <!-- Voucher Modal -->
+          <div
+            id="voucherModal"
+            class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50"
+            onclick="closeModal('voucherModal')"
+          >
+            <div
+              class="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 relative"
+              onclick="event.stopPropagation()"
+            >
+              <button
+                type="button"
+                class="absolute top-2 right-2 text-gray-700 hover:text-gray-900"
+                onclick="event.stopPropagation(); closeModal('voucherModal');"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+              <form action="">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                  Subir Voucher
+                </h2>
+                <div class="mb-4">
+                  <input
+                    type="number"
+                    placeholder="Número de documento"
+                    class="w-full px-4 py-2 border rounded-lg"
+                    id="voucherDocumento"
+                    disabled
+                  />
+                  <script>
+                    document
+                      .querySelector("form")
+                      .addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        const documentoValue = document.querySelector(
+                          'input[placeholder="Numero de documento"]'
+                        ).value;
+                        document.getElementById("voucherDocumento").value =
+                          documentoValue;
+                        openModal("voucherModal");
+                      });
+                  </script>
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="text"
+                    placeholder="Secuencia"
+                    class="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="date"
+                    placeholder="Fecha"
+                    class="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+                <div class="mb-4">
+                    <input
+                      type="text"
+                      placeholder="Monto"
+                      class="w-full px-4 py-2 border rounded-lg"
+                      step="0.01"
+                      min="0"
+                      oninput="this.value = this.value.match(/^\d+(\.\d{0,2})?/)[0];"
+                    />
+                </div>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                />
+                <button
+                  type="button"
+                  class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                  onclick="closeModal('voucherModal').event.stopPropagation()"
+                >
+                  Close
+                </button>
+              </form>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- <section id="about" class="bg-blue-500 text-white py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center uppercase mb-8">
+          Acerca del Curso
+        </h2>
+        <div class="flex justify-center items-center mb-8">
+          <div class="w-16 h-1 bg-white"></div>
+          <i class="fas fa-star text-white mx-4"></i>
+          <div class="w-16 h-1 bg-white"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <p class="text-lg">
+            Freelancer is a free bootstrap theme created by Start Bootstrap. The
+            download includes the complete source files including HTML, CSS, and
+            JavaScript as well as optional SASS stylesheets for easy
+            customization.
+          </p>
+          <p class="text-lg">
+            You can create your own custom avatar for the masthead, change the
+            icon in the dividers, and add your email address to the contact form
+            to make it fully functional!
+          </p>
+        </div>
+        <div class="text-center mt-8">
+          <a
+            href="https://startbootstrap.com/theme/freelancer/"
+            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-500 transition-colors"
+          >
+            <i class="fas fa-download mr-2"></i> Free Download!
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-xl font-bold mb-4">Location</h4>
+            <p>
+              2215 John Daniel Drive<br />
+              Clark, MO 65243
+            </p>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Around the Web</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-blue-500"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white hover:text-blue-500"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white hover:text-blue-500"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="text-white hover:text-blue-500"
+                ><i class="fab fa-dribbble"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">About Freelancer</h4>
+            <p>
+              Freelance is a free to use, MIT licensed Bootstrap theme created
+              by
+              <a href="http://startbootstrap.com" class="text-blue-500"
+                >Start Bootstrap</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Copyright -->
+    <div class="bg-gray-900 text-white text-center py-4">
+      <div class="container mx-auto px-4">
+        <small>Copyright &copy; Your Website 2023</small>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Toggle menu for mobile
+      function toggleMenu() {
+        const menu = document.getElementById("navbarResponsive");
+        menu.classList.toggle("hidden");
+      }
+
+      // Open modal
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      // Close modal
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      const SECOND = 1000;
+      const MINUTE = 60 * SECOND;
+      const HOUR = 60 * MINUTE;
+      const DAY = 24 * HOUR;
+      const DATE_END = new Date("2025-02-28T23:59:59").getTime();
+
+      function init(){
+        const countdown = DATE_END;
+        if(!countdown) return;
+
+        const days = document.querySelector('[data-days]');
+        const hours = document.querySelector('[data-hours]');
+        const minutes = document.querySelector('[data-minutes]');
+        const seconds = document.querySelector('[data-seconds]');
+
+        const formatTime = time => {
+          return Math.floor(time).toString().padStart(2, '0');
+        };
+        function update(){
+          const now = Date.now();
+          const distance = countdown - now;
+
+          days.innerText = formatTime(distance / DAY)
+          hours.innerText = formatTime((distance % DAY) / HOUR)
+          minutes.innerText = formatTime((distance % HOUR) / MINUTE)
+          seconds.innerText = formatTime((distance % MINUTE) / SECOND)
+        }
+
+        setInterval(update, SECOND);
+      }
+
+      init();
+    </script>
+  </body>
+  
+</html>
