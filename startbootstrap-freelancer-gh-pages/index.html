@@ -23,6 +23,12 @@ especialistasResponsive -->
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
       crossorigin="anonymous"
     ></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -632,7 +638,7 @@ especialistasResponsive -->
               type="number"
               placeholder="Numero de documento"
               class="w-full px-4 py-2 border rounded-lg"
-              id="documento"
+              id="nro_documento"
               oninput="this.value = this.value.replace(/[^0-9]/g, ''); updateVoucherDNI();"
             />
           </div>
@@ -683,6 +689,26 @@ especialistasResponsive -->
               <label for="particular">Particular</label>
             </div>
           </div>
+          <section class="py-10">
+            <h2 class="text-2xl font-bold text-center uppercase text-gray-800 mb-4">Pagos Validados</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-300">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="p-2 border">#</th>
+                            <th class="p-2 border">Fecha</th>
+                            <th class="p-2 border">Monto</th>
+                            <th class="p-2 border">Secuencia</th>
+                            <th class="p-2 border">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaPagos">
+                        <!-- Aquí se agregarán dinámicamente los pagos validados -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
         
           <!-- Botón para abrir modal -->
           <button
@@ -718,14 +744,15 @@ especialistasResponsive -->
                 <input
                   type="number"
                   placeholder="Número de documento"
+                  id="documento"
                   class="w-full px-4 py-2 border rounded-lg"
-                  id="voucherDocumento"
                   disabled
                 />
               </div>
               <div class="mb-4">
                 <input
                   type="text"
+                  id="secuencia"
                   placeholder="Secuencia"
                   class="w-full px-4 py-2 border rounded-lg"
                 />
@@ -733,6 +760,7 @@ especialistasResponsive -->
               <div class="mb-4">
                 <input
                   type="date"
+                  id="fecha"
                   placeholder="Fecha"
                   class="w-full px-4 py-2 border rounded-lg"
                 />
@@ -741,6 +769,7 @@ especialistasResponsive -->
                 <input
                   type="text"
                   placeholder="Monto"
+                  id="monto"
                   class="w-full px-4 py-2 border rounded-lg"
                   step="0.01"
                   min="0"
@@ -749,7 +778,7 @@ especialistasResponsive -->
               </div>
               <input
                 type="file"
-                id="fileInput"
+                id="file"
                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                 accept=".png, .jpg, .jpeg, .pdf"
                 onchange="previewFile()"
@@ -757,11 +786,11 @@ especialistasResponsive -->
               <div id="filePreview" class="mt-4"></div>
         
               <button
+                id="validateButton"
                 type="button"
                 class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                onclick="closeModal('voucherModal')"
               >
-                Close
+                Validar
               </button>
             </div>
           </div>
@@ -856,8 +885,63 @@ especialistasResponsive -->
     <!-- Scripts -->
     <script>
 
+      let pagosValidados = []; // Array global para almacenar los pagos
 
+      document.getElementById('validateButton').addEventListener('click', async () => {
+      // Obtener los elementos del formulario
+      const secuenciaInput = document.getElementById('secuencia');
+      const montoInput = document.getElementById('monto');
+      const fechaInput = document.getElementById('fecha');
+      const fileInput = document.getElementById('file');
+      const documentoInput = document.getElementById('documento');
+     // const pagarEnPagaloInput = document.getElementById('pagarEnPagalo');
+      //const tarifaInput = document.getElementById('tarifa');
 
+      // Crear un objeto FormData y agregar los datos del formulario
+      const formData = new FormData();
+      formData.append('secuencia', secuenciaInput.value);
+      formData.append('monto', montoInput.value);
+      formData.append('fecha', fechaInput.value);
+      formData.append('file', fileInput.files[0]);
+      formData.append('documento', documentoInput.value);
+      //formData.append('pagarEnPagalo', pagarEnPagaloInput.checked);
+      //formData.append('tarifa', tarifaInput.value);
+
+      try {
+        // Enviar los datos al servidor
+        const response = await fetch('http://localhost:8000/api/pagos/validar-pago-curso', {
+          method: 'POST',
+          body: formData,
+        });
+
+        // Procesar la respuesta del servidor
+        const result = await response.json();
+
+        if (result.status) {
+          // Mostrar notificación de éxito
+          toastr.success(result.message, 'Éxito');
+
+          pagosValidados.push({
+              fecha: result.fecha,
+              monto: result.monto,
+              secuencia: result.secuencia,
+              token: result.token
+          });
+
+          // Actualizar la lista en el HTML
+          actualizarListaPagos();
+
+          // Cerrar el modal (asegúrate de tener una función closeModal definida)
+          closeModal('voucherModal');
+        } else {
+          // Mostrar notificación de error
+          toastr.error(result.message, 'Error');
+        }
+      } catch (error) {
+        // Mostrar notificación de error en caso de fallo en la solicitud
+        toastr.error('Ocurrió un error al procesar la solicitud.', 'Error');
+      }
+    });
 
       // Toggle menu for mobile
       function toggleMenu() {
@@ -876,12 +960,12 @@ especialistasResponsive -->
       }
 
       function updateVoucherDNI() {
-        let dniValue = document.getElementById("documento").value;
-        document.getElementById("voucherDocumento").value = dniValue;
+        let dniValue = document.getElementById("nro_documento").value;
+        document.getElementById("documento").value = dniValue;
       }
 
       function previewFile() {
-        const fileInput = document.getElementById("fileInput");
+        const fileInput = document.getElementById("file");
         const filePreview = document.getElementById("filePreview");
         filePreview.innerHTML = ""; // Limpiar la vista previa
 
@@ -938,8 +1022,27 @@ especialistasResponsive -->
         setInterval(update, SECOND);
       }
 
-
       init();
+
+      function actualizarListaPagos() {
+        const listaPagos = document.getElementById("listaPagos"); // Contenedor donde se mostrarán los pagos
+
+        listaPagos.innerHTML = ""; // Limpiar lista antes de actualizar
+        console.log("->> ",pagosValidados)
+        pagosValidados.forEach((pago, index) => {
+            const pagoHTML = `
+                <tr class="border-b">
+                    <td class="p-2 text-center">${index + 1}</td>
+                    <td class="p-2 text-center">${pago.fecha}</td>
+                    <td class="p-2 text-center">${pago.monto}</td>
+                    <td class="p-2 text-center">${pago.secuencia}</td>
+                    <td class="p-2 text-center text-green-500 font-bold">Validado</td>
+                </tr>
+            `;
+            listaPagos.innerHTML += pagoHTML;
+        });
+      }
+
     </script>
   </body>
   
