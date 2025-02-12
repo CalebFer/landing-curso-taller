@@ -409,11 +409,18 @@ especialistasResponsive -->
           <div class="w-16 h-1 bg-gray-800"></div>
         </div>
         <form class="max-w-lg mx-auto">
-          <div class="mb-4">
+          <div class="mb-4 flex flex-row gap-x-4">
+            <select id="selectPago" class="w-1/2 px-4 py-2 border rounded-lg">
+                <option value="">Tipo Documento</option>
+                <option value="1">Documento Nacional de Identidad (DNI)</option>
+                <option value="2">Pasaporte</option>
+                <option value="3">Carné de Extranjería</option>
+                <option value="4">Cédula de identidad</option>
+            </select>
             <input
               type="number"
               placeholder="Numero de documento"
-              class="w-full px-4 py-2 border rounded-lg"
+              class="w-1/2 px-4 py-2 border rounded-lg"
               id="nro_documento"
               oninput="this.value = this.value.replace(/[^0-9]/g, ''); updateVoucherDNI();"
             />
@@ -465,6 +472,18 @@ especialistasResponsive -->
               <label for="particular">Particular</label>
             </div>
           </div>
+
+          <div class="mb-4">
+            <label class="block mb-2 text-white">AREA:</label>
+            <select id="area" class="w-full px-4 py-2 border rounded-lg">
+              <option value="">Tipo Documento</option>
+              <option value="1">Documento Nacional de Identidad (DNI)</option>
+              <option value="2">Pasaporte</option>
+              <option value="3">Carné de Extranjería</option>
+              <option value="4">Cédula de identidad</option>
+          </select>
+          </div>
+
           <section class="py-10">
             <h2 class="text-2xl font-bold text-center uppercase text-gray-800 mb-4">Pagos Validados</h2>
             <div class="overflow-x-auto">
@@ -495,7 +514,8 @@ especialistasResponsive -->
             Subir Voucher
           </button>
           <button
-            type="submit"
+            type="button"
+            id="enviarInscripcion"
             class="container mt-4 bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-colors"
           >
             Send
@@ -814,6 +834,53 @@ especialistasResponsive -->
             listaPagos.innerHTML += pagoHTML;
         });
       }
+
+      document.getElementById("enviarInscripcion").addEventListener("click", async function () {
+        let formData = new FormData();
+        let tokens = [];
+
+        console.log(pagosValidados)
+        for (let option of pagosValidados) {
+            console.log(option)
+            tokens.push(option.token);
+            formData.append("tokens[]", option.token);
+        }
+
+        // Si no hay tokens, enviamos un campo vacío
+        if (tokens.length === 0) {
+            formData.append("tokens", "");
+        }
+
+        // Aquí puedes añadir más datos del formulario si es necesario
+        formData.append("nombre", document.querySelector("input[placeholder='Nombres']").value);
+        formData.append("paterno", document.querySelector("input[placeholder='Apellido paterno']").value);
+        formData.append("materno", document.querySelector("input[placeholder='Apellido materno']").value);
+        formData.append("documento", document.getElementById("nro_documento").value);
+        formData.append("correo", document.querySelector("input[placeholder='Correo electrónico']").value);
+        formData.append("celular", document.querySelector("input[placeholder='Número de celular']").value);
+        formData.append("area", document.getElementById("area").value);
+        formData.append("condicion", document.querySelector("input[name='condicion']").value);
+
+        try {
+            const response = await fetch("http://localhost:8000/api/v1/inscripcion/curso-taller", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                toastr.success(result.message || "Inscripción realizada con éxito.", "Éxito");
+                // Opcional: limpiar el formulario después de enviar
+                document.getElementById("formInscripcion").reset();
+            } else {
+              toastr.error(result.message || "Hubo un error al inscribirse.", "Error");
+            }
+        } catch (error) {
+            //toastr.error("Error en la solicitud: " + error.message, "Error");
+        }
+    });
+
 
     </script>
   </body>
