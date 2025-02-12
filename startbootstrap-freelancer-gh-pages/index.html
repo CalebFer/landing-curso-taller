@@ -632,7 +632,8 @@ especialistasResponsive -->
               type="number"
               placeholder="Numero de documento"
               class="w-full px-4 py-2 border rounded-lg"
-              oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+              id="documento"
+              oninput="this.value = this.value.replace(/[^0-9]/g, ''); updateVoucherDNI();"
             />
           </div>
           <div class="mb-4">
@@ -643,7 +644,7 @@ especialistasResponsive -->
               oninput="this.value = this.value.toUpperCase();"
             />
           </div>
-            <div class="mb-4 flex flex-row gap-x-4">
+          <div class="mb-4 flex flex-row gap-x-4">
             <input
               type="text"
               placeholder="Apellido paterno"
@@ -656,7 +657,7 @@ especialistasResponsive -->
               class="w-1/2 px-4 py-2 border rounded-lg"
               oninput="this.value = this.value.toUpperCase();"
             />
-            </div>
+          </div>
           <div class="mb-4">
             <input
               type="number"
@@ -672,29 +673,18 @@ especialistasResponsive -->
               class="w-full px-4 py-2 border rounded-lg"
             />
           </div>
-
+        
           <div class="mb-4 text-white">
             <label class="block mb-2">Condición:</label>
             <div class="flex items-center">
-              <input
-                type="radio"
-                id="unap"
-                name="condicion"
-                value="UNAP"
-                class="mr-2"
-              />
+              <input type="radio" id="unap" name="condicion" value="UNAP" class="mr-2" />
               <label for="unap" class="mr-4">UNAP</label>
-              <input
-                type="radio"
-                id="particular"
-                name="condicion"
-                value="Particular"
-                class="mr-2"
-              />
+              <input type="radio" id="particular" name="condicion" value="Particular" class="mr-2" />
               <label for="particular">Particular</label>
             </div>
           </div>
-          <!-- Modal Trigger Button -->
+        
+          <!-- Botón para abrir modal -->
           <button
             type="button"
             class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-colors"
@@ -708,16 +698,14 @@ especialistasResponsive -->
           >
             Send
           </button>
-          <!-- Voucher Modal -->
+        
+          <!-- Modal para subir voucher -->
           <div
             id="voucherModal"
             class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50"
             onclick="closeModal('voucherModal')"
           >
-            <div
-              class="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 relative"
-              onclick="event.stopPropagation()"
-            >
+            <div class="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 relative" onclick="event.stopPropagation()">
               <button
                 type="button"
                 class="absolute top-2 right-2 text-gray-700 hover:text-gray-900"
@@ -725,68 +713,56 @@ especialistasResponsive -->
               >
                 <i class="fas fa-times"></i>
               </button>
-              <form action="">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">
-                  Subir Voucher
-                </h2>
-                <div class="mb-4">
-                  <input
-                    type="number"
-                    placeholder="Número de documento"
-                    class="w-full px-4 py-2 border rounded-lg"
-                    id="voucherDocumento"
-                    disabled
-                  />
-                  <script>
-                    document
-                      .querySelector("form")
-                      .addEventListener("submit", function (event) {
-                        event.preventDefault();
-                        const documentoValue = document.querySelector(
-                          'input[placeholder="Numero de documento"]'
-                        ).value;
-                        document.getElementById("voucherDocumento").value =
-                          documentoValue;
-                        openModal("voucherModal");
-                      });
-                  </script>
-                </div>
-                <div class="mb-4">
-                  <input
-                    type="text"
-                    placeholder="Secuencia"
-                    class="w-full px-4 py-2 border rounded-lg"
-                  />
-                </div>
-                <div class="mb-4">
-                  <input
-                    type="date"
-                    placeholder="Fecha"
-                    class="w-full px-4 py-2 border rounded-lg"
-                  />
-                </div>
-                <div class="mb-4">
-                    <input
-                      type="text"
-                      placeholder="Monto"
-                      class="w-full px-4 py-2 border rounded-lg"
-                      step="0.01"
-                      min="0"
-                      oninput="this.value = this.value.match(/^\d+(\.\d{0,2})?/)[0];"
-                    />
-                </div>
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">Subir Voucher</h2>
+              <div class="mb-4">
                 <input
-                  type="file"
-                  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                  type="number"
+                  placeholder="Número de documento"
+                  class="w-full px-4 py-2 border rounded-lg"
+                  id="voucherDocumento"
+                  disabled
                 />
-                <button
-                  type="button"
-                  class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                  onclick="closeModal('voucherModal').event.stopPropagation()"
-                >
-                  Close
-                </button>
-              </form>
+              </div>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  placeholder="Secuencia"
+                  class="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="date"
+                  placeholder="Fecha"
+                  class="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  placeholder="Monto"
+                  class="w-full px-4 py-2 border rounded-lg"
+                  step="0.01"
+                  min="0"
+                  oninput="this.value = this.value.match(/^\d+(\.\d{0,2})?/)[0];"
+                />
+              </div>
+              <input
+                type="file"
+                id="fileInput"
+                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                accept=".png, .jpg, .jpeg, .pdf"
+                onchange="previewFile()"
+              />
+              <div id="filePreview" class="mt-4"></div>
+        
+              <button
+                type="button"
+                class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                onclick="closeModal('voucherModal')"
+              >
+                Close
+              </button>
             </div>
           </div>
         </form>
@@ -879,26 +855,58 @@ especialistasResponsive -->
 
     <!-- Scripts -->
     <script>
+
+
+
+
       // Toggle menu for mobile
       function toggleMenu() {
         const menu = document.getElementById("navbarResponsive");
         menu.classList.toggle("hidden");
       }
 
-      // Open modal
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
+      function openModal(id) {
+        document.getElementById(id).classList.remove("hidden");
+        document.getElementById(id).classList.add("flex");
       }
 
-      // Close modal
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
+      function closeModal(id) {
+        document.getElementById(id).classList.add("hidden");
+        document.getElementById(id).classList.remove("flex");
       }
 
+      function updateVoucherDNI() {
+        let dniValue = document.getElementById("documento").value;
+        document.getElementById("voucherDocumento").value = dniValue;
+      }
+
+      function previewFile() {
+        const fileInput = document.getElementById("fileInput");
+        const filePreview = document.getElementById("filePreview");
+        filePreview.innerHTML = ""; // Limpiar la vista previa
+
+        if (fileInput.files.length > 0) {
+          const file = fileInput.files[0];
+          const fileType = file.type;
+
+          if (fileType.includes("image")) {
+            // Si es una imagen
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(file);
+            img.classList.add("w-full", "h-auto", "rounded-lg", "mt-2");
+            img.style.maxHeight = "300px";
+            filePreview.appendChild(img);
+          } else if (fileType.includes("pdf")) {
+            // Si es un PDF
+            const iframe = document.createElement("iframe");
+            iframe.src = URL.createObjectURL(file);
+            iframe.classList.add("w-full", "h-64", "mt-2");
+            filePreview.appendChild(iframe);
+          } else {
+            filePreview.innerHTML = "<p class='text-red-500 mt-2'>Formato no soportado</p>";
+          }
+        }
+      }
       const SECOND = 1000;
       const MINUTE = 60 * SECOND;
       const HOUR = 60 * MINUTE;
